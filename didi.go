@@ -32,6 +32,13 @@ func main() {
 	app.Usage = "Destinguish distribution"
 	app.Version = "0.9.0"
 
+	app.Flags = []cli.Flag{
+		cli.BoolFlag{
+			Name:  "all, a",
+			Usage: "print all information",
+		},
+	}
+
 	// Check if /etc/os-release exists
 	app.Before = func(c *cli.Context) error {
 		_, err := os.Stat("/etc/os-release")
